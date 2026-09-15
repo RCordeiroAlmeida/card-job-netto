@@ -23,8 +23,8 @@ export class Cartao {
   shareCard(): void {
   if (navigator.share) {
     navigator.share({
-      title: 'seu nome - sua marca',
-      text: 'Conheça seu nome e sua marca',
+      title: 'Job José de Queiroz Netto - Fisioterapeuta',
+      text: 'Fisioterapeuta | WhatsApp: +5534991380880 | Instagram: @jobnetto',
       url: window.location.href,
     }).catch(() => {});
   } else {
@@ -38,12 +38,12 @@ saveContact(): void {
   const vcard = [
     'BEGIN:VCARD',
     'VERSION:3.0',
-    'FN:seu nome seu sobrenome',
-    'N:seu sobrenome;seu nome;;;',
-    'ORG:sua marca',
-    'TITLE:sua profissão',
-    'TEL;TYPE=CELL:+5511952793798',
-    'URL:https://uicard.com.br',
+    'FN:Job José de Queiroz Netto',
+    'N:Netto;Job José de Queiroz;;;',
+    'ORG:Fisioterapia',
+    'TITLE:Fisioterapeuta',
+    'TEL;TYPE=CELL:+5534991380880',
+    'URL:https://www.instagram.com/jobnetto/',
     'END:VCARD'
   ].join('\n');
 
@@ -51,13 +51,13 @@ saveContact(): void {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'seu_nome.vcf';
+  a.download = 'job_jose_de_queiroz_netto.vcf';
   a.click();
   URL.revokeObjectURL(url);
 }
 
 sendWhatsapp(): void {
   const msg = encodeURIComponent('Olá! Vi seu cartão digital e gostaria de falar com você.');
-  window.open(`https://wa.me/5511952793798?text=${msg}`, '_blank');
+  window.open(`https://wa.me/5534991380880?text=${msg}`, '_blank');
 }
 }
