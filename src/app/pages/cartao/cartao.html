@@ -341,38 +341,42 @@
       object-fit: cover;
     }
 
-    /* ESTILOS DAS FORMAÇÕES (Novo layout com 2 caixas) */
-    .specialties-grid {
+    /* ESTILO ÚNICO PARA FORMAÇÃO / PÓS */
+    .specialty-card-single {
       width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .specialty-card {
-      background: #0B2926; /* Caixinha branca para destacar no fundo bege */
+      background: #0B2926;
       border-radius: 12px;
-      padding: 16px 12px;
+      padding: 16px;
+      margin-bottom: 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      border: 1px solid rgba(0,0,0,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
     .specialty-icon {
-      color: #b08d57; /* Tom Dourado/Bronze para diferenciar dos links */
-      margin-bottom: 8px;
+      color: #b08d57;
+      margin-bottom: 6px;
+    }
+
+    .specialty-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      color: #b08d57;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
     }
 
     .specialty-text {
       font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
       color: #ffffff;
-      line-height: 1.4;
+      line-height: 1.5;
       text-transform: uppercase;
       letter-spacing: 0.02em;
     }
@@ -450,22 +454,10 @@
       <!-- FRONT -->
       <div class="face-front">
         <div class="front-card" (click)="flipCard()">
-          <div style="margin-left:10px">
-                <img src="assets/logotipo.png" alt="Logo" width="90%" />
-          </div>
-
-          <div
-            style="
-              flex: 1;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              padding: 20px 0 8px;
-              position: relative;
-              z-index: 2;
-            "
-          >
-            <div style="margin-top: 20px">
+          
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 2;">
+            <img src="assets/logo.png" alt="Logo" style="width: 80px; margin-bottom: 20px; object-fit: contain;" />
+            <div>
               <div class="front-name nexa">
                 JOB NETTO
               </div>
@@ -536,38 +528,22 @@
 
           <!-- AVATAR (Foto de perfil) -->
           <div class="avatar-wrapper">
-            <!-- Insira aqui o caminho da sua foto -->
             <img src="assets/profile.png" alt="Foto profissional" />
           </div>
 
-          <!-- CAIXINHAS DE FORMAÇÕES LADO A LADO -->
-          <div class="specialties-grid">
-            
-            <div class="specialty-card">
-              <div class="specialty-icon">
-                <!-- Ícone de capelo de formatura -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/>
-                  <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"/>
-                </svg>
-              </div>
-              <div class="specialty-text">
-                Traumato-ortopedia:<br>terapia manual
-              </div>
+          <!-- CARD ÚNICO DE FORMAÇÕES / PÓS -->
+          <div class="specialty-card-single">
+            <div class="specialty-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/>
+                <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"/>
+              </svg>
             </div>
-
-            <div class="specialty-card">
-              <div class="specialty-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/>
-                  <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"/>
-                </svg>
-              </div>
-              <div class="specialty-text">
-                Terapia Intensiva:<br>Cardiorrespiratória
-              </div>
+            <div class="specialty-title">Pós em:</div>
+            <div class="specialty-text">
+              Traumato-ortopedia - Ênfase em Terapia Manual<br>
+              Cardiorrespiratória
             </div>
-
           </div>
 
           <!-- LISTA DE LINKS -->
@@ -658,3 +634,25 @@
     </button>
   </div>
 </div>
+
+<script>
+  // Exemplo da função saveContact para garantir que o nome gerado no arquivo vCard seja "Job Netto - Fisioterapeuta"
+  function saveContact() {
+    const vcard = "BEGIN:VCARD\n" +
+                  "VERSION:3.0\n" +
+                  "FN:Job Netto - Fisioterapeuta\n" +
+                  "N:Netto;Job;;;\n" +
+                  "TITLE:Fisioterapeuta\n" +
+                  "TEL;TYPE=WORK,VOICE:+5534991380880\n" +
+                  "END:VCARD";
+    
+    const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'job-netto.vcf');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+</script>
