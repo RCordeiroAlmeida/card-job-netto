@@ -51,6 +51,8 @@
       overflow: hidden;
       opacity: 0;
       pointer-events: none;
+      display: flex;
+      flex-direction: column;
     }
     .face-back.visible {
       opacity: 1;
@@ -191,6 +193,15 @@
       border-radius: 3px;
     }
 
+    .back-card {
+      width: 100%;
+      background: #161616;
+      padding: 10px;
+      flex: 1; 
+      display: flex;
+      flex-direction: column;
+    }
+
     .back-btn-wrap {
       padding: 10px 12px 14px;
     }
@@ -265,22 +276,22 @@
     }
 
     /* ========================================================
-       NOVOS ESTILOS DO VERSO (Baseado na imagem de referência)
+       NOVOS ESTILOS DO VERSO
        ======================================================== */
     .back-inner.new-style {
-      background: #EBE6DA; /* Tom bege da imagem */
+      background: #EBE6DA;
       border-radius: 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 40px 20px 24px;
       text-align: center;
-      min-height: 100%;
+      flex: 1; 
     }
 
     .profile-logo {
       width: 100px;
-      margin-bottom: 12px;
+      margin-bottom: 5px;
       object-fit: contain;
     }
 
@@ -317,10 +328,11 @@
       height: 140px;
       border-radius: 50%;
       overflow: hidden;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       border: 4px solid #EBE6DA;
-      background: #d4cfc4; /* Cor de fundo caso a imagem demore a carregar */
+      background: #d4cfc4;
+      flex-shrink: 0;
     }
 
     .avatar-wrapper img {
@@ -329,14 +341,40 @@
       object-fit: cover;
     }
 
-    .profile-motto {
+    /* ESTILOS DAS FORMAÇÕES (Novo layout com 2 caixas) */
+    .specialties-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .specialty-card {
+      background: #0B2926; /* Caixinha branca para destacar no fundo bege */
+      border-radius: 12px;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .specialty-icon {
+      color: #b08d57; /* Tom Dourado/Bronze para diferenciar dos links */
+      margin-bottom: 8px;
+    }
+
+    .specialty-text {
       font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 2px;
-      color: #333;
-      margin-bottom: 16px;
+      color: #ffffff;
+      line-height: 1.4;
       text-transform: uppercase;
+      letter-spacing: 0.02em;
     }
 
     .link-list {
@@ -350,7 +388,7 @@
     .list-item {
       display: flex;
       align-items: center;
-      background: #0B2926; /* Verde escuro da imagem */
+      background: #0B2926; 
       border-radius: 12px;
       padding: 16px 20px;
       text-decoration: none;
@@ -396,6 +434,7 @@
       border-top: 1px solid #c2bdae;
       padding-top: 16px;
       width: 80%;
+      margin-top: auto; 
     }
 
     .back-btn-wrap-new {
@@ -486,7 +525,7 @@
 
     <!-- BACK REAL: fora do flipper -->
     <div class="face-back" [class.visible]="isBack" (click)="$event.stopPropagation()">
-      <div class="back-card" style="background: #161616; padding: 10px; height: 100%;">
+      <div class="back-card">
         <div class="back-inner new-style">
           
           <!-- TOPO (Logo e Nome) -->
@@ -501,9 +540,34 @@
             <img src="assets/profile.png" alt="Foto profissional" />
           </div>
 
-          <div class="profile-specialties" style="display: flex; flex-direction: column; gap: 6px; text-align: center; font-size: 0.82rem; line-height: 1.5; color: #e8e8e8; margin: 12px 0 8px; letter-spacing: 0.02em;">
-            <div>Traumato-ortopedia: terapia manual</div>
-            <div>Terapia Intensiva: Cardiorrespiratória</div>
+          <!-- CAIXINHAS DE FORMAÇÕES LADO A LADO -->
+          <div class="specialties-grid">
+            
+            <div class="specialty-card">
+              <div class="specialty-icon">
+                <!-- Ícone de capelo de formatura -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/>
+                  <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"/>
+                </svg>
+              </div>
+              <div class="specialty-text">
+                Traumato-ortopedia:<br>terapia manual
+              </div>
+            </div>
+
+            <div class="specialty-card">
+              <div class="specialty-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/>
+                  <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"/>
+                </svg>
+              </div>
+              <div class="specialty-text">
+                Terapia Intensiva:<br>Cardiorrespiratória
+              </div>
+            </div>
+
           </div>
 
           <!-- LISTA DE LINKS -->
