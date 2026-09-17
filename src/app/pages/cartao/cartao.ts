@@ -23,7 +23,7 @@ export class Cartao {
   shareCard(): void {
   if (navigator.share) {
     navigator.share({
-      title: 'Job José de Queiroz Netto - Fisioterapeuta',
+      title: 'Job Netto - Fisioterapeuta',
       text: 'Fisioterapeuta | WhatsApp: +5534991380880 | Instagram: @jobnetto',
       url: window.location.href,
     }).catch(() => {});
@@ -38,8 +38,8 @@ saveContact(): void {
   const vcard = [
     'BEGIN:VCARD',
     'VERSION:3.0',
-    'FN:Job José de Queiroz Netto',
-    'N:Netto;Job José de Queiroz;;;',
+    'FN:Job Netto',
+    'N:Netto;Job;;;',
     'ORG:Fisioterapia',
     'TITLE:Fisioterapeuta',
     'TEL;TYPE=CELL:+5534991380880',
